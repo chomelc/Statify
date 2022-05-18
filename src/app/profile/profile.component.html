@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+    <mat-card-title class="h3">Logged in as {{profile.display_name}}</mat-card-title>
+    <mat-card-subtitle class="h6">{{profile.country}} {{profile.country | flagEmoji}} | {{profile.product | titlecase }}
+    </mat-card-subtitle>
+    <mat-card-content>
+        <img src="{{profile.images[0].url}}" [alt]="profile.display_name" class="rounded" />
+        <p>Followers: {{profile.followers.total}}</p>
+        <app-user-playlists [userId]="profile.id" [accessToken]="accessToken"></app-user-playlists>
+        <app-user-followed-artists [accessToken]="accessToken"></app-user-followed-artists>
+        <app-user-saved-tracks [accessToken]="accessToken"></app-user-saved-tracks>
+    </mat-card-content>
+    <mat-card-actions>
+        <!-- <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button> -->
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,21 @@
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <!-- <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+                class="d-inline-block align-text-top"> -->
+            {{title}}
+        </a>
+        <span class="navbar-text">
+            Navbar text with an inline element
+          </span>
+    </div>
+</nav>
+
+<div class="container">
+    <div *ngIf="!isLoggedIn;else userIsLoggedIn" id="login">
+        <app-login [(isLoggedIn)]="isLoggedIn" [(accessToken)]="accessToken"></app-login>
+    </div>
+    <ng-template #userIsLoggedIn id="loggedin">
+        <app-profile [accessToken]="accessToken"></app-profile>
+    </ng-template>
+</div>
