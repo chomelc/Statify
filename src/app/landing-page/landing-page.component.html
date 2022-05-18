@@ -6,14 +6,20 @@
             {{title}}
         </a>
         <span class="navbar-text">
-            Navbar text with an inline element
-          </span>
+            Visualize your Spotify statistics.
+        </span>
+        <div class="logout">
+            <a *ngIf="isLoggedIn" mat-raised-button aria-label="spotify-icon" (click)="logout()">
+                <mat-icon svgIcon="spotify-icon"></mat-icon>
+                <span class="button-title">Logout</span>
+            </a>
+        </div>
     </div>
 </nav>
 
 <div class="container">
     <div *ngIf="!isLoggedIn;else userIsLoggedIn" id="login">
-        <app-login [(isLoggedIn)]="isLoggedIn" [(accessToken)]="accessToken"></app-login>
+        <app-login></app-login>
     </div>
     <ng-template #userIsLoggedIn id="loggedin">
         <app-profile [accessToken]="accessToken"></app-profile>

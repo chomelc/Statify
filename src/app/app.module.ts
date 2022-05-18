@@ -13,7 +13,6 @@ import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { SpotifyGlobalService } from './services/spotify-global.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SpotifyLoginService } from './services/spotify-login.service';
 import { ProfileComponent } from './profile/profile.component';
 import { SpotifyProfileService } from './services/spotify-profile.service';
 import { UserPlaylistsComponent } from './user-playlists/user-playlists.component';
@@ -46,7 +45,6 @@ import { FlagEmojiPipe } from './pipes/flag-emoji.pipe';
   ],
   providers: [
     SpotifyGlobalService,
-    SpotifyLoginService,
     SpotifyProfileService,
     SpotifyUserPlaylistsService,
     SpotifyUserFollowedArtistsService,

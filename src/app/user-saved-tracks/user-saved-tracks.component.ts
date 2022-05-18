@@ -9,7 +9,7 @@ import { SpotifyUserSavedTracksService } from '../services/spotify-user-saved-tr
 })
 export class UserSavedTracksComponent implements OnInit {
   @Input() accessToken!: string;
-  tracks! : FormattedSavedTracks;
+  tracks? : FormattedSavedTracks;
   constructor(private spotifyUserSavedTracksService : SpotifyUserSavedTracksService) { }
 
   ngOnInit(): void {

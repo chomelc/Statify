@@ -9,7 +9,7 @@ import { SpotifyUserFollowedArtistsService } from '../services/spotify-user-foll
 })
 export class UserFollowedArtistsComponent implements OnInit {
   @Input() accessToken!: string;
-  artists!: FormattedFollowingArtists;
+  artists?: FormattedFollowingArtists;
   constructor(private spotifyUserFollowedArtistsService: SpotifyUserFollowedArtistsService) { }
 
   ngOnInit(): void {

@@ -10,9 +10,9 @@ import { SpotifyUserPlaylistsService } from '../services/spotify-user-playlists.
 })
 export class UserPlaylistsComponent implements OnInit {
 
-  @Input() userId!: string;
+  @Input() userId?: string;
   @Input() accessToken!: string;
-  playlists!: FormattedPlaylists;
+  playlists?: FormattedPlaylists;
 
   constructor(private spotifyUserPlaylistsService: SpotifyUserPlaylistsService) { }
 

@@ -10,8 +10,7 @@ import { SpotifyProfileService } from '../services/spotify-profile.service';
 export class ProfileComponent implements OnInit {
 
   @Input() accessToken!: string;
-  profile!: FormattedProfile;
-  flag: string = '';
+  profile?: FormattedProfile;
 
   constructor(private spotifyProfileService: SpotifyProfileService) { }
 

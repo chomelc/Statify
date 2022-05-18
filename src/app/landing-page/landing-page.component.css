@@ -1,3 +1,26 @@
+.navbar-text {
+    font-style: italic;
+}
+
 .container {
     margin-top: 75px
+}
+
+.logout a {
+    background-color: #eee;
+    color: #252222;
+    padding: 5px;
+}
+
+.button-title{
+    padding: 5px 5px 5px 10px; 
+}
+
+a.mat-button .mat-icon,
+a.mat-button .mat-icon,
+a.mat-raised-button .mat-icon,
+a.mat-flat-button .mat-icon,
+a.mat-stroked-button .mat-icon {
+  vertical-align: top;
+  font-size: 1.25em;
 }

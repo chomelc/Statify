@@ -8,10 +8,6 @@ const routes: Routes = [
     path: '',
     component: LandingPageComponent
   },
-  { // route => /login
-    path: 'login',
-    component: LandingPageComponent
-  },
 ];
 
 @NgModule({

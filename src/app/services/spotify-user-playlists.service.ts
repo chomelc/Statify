@@ -6,10 +6,10 @@ import { SpotifyGlobalService } from './spotify-global.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SpotifyUserPlaylistsService {  
+export class SpotifyUserPlaylistsService {
   constructor(private spotifyGlobalService: SpotifyGlobalService) { }
-  
-  public getPlaylists(userId : string, token: string): Observable<FormattedPlaylists> {
+
+  public getPlaylists(userId: string | undefined, token: string): Observable<FormattedPlaylists> {
     const playlistsUrl: string = `users/${userId}/playlists`;
     return this.spotifyGlobalService.getQuery(playlistsUrl, token).pipe(
       map((res: any) => {
