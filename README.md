@@ -8,6 +8,10 @@ Install or update dependencies with:
 ```bash
 npm install
 ```
+### :gear: Running the backend
 
+Run `npm run start:backend` and navigate to http://localhost:8000/.
 
-Run `ng serve` for a dev server and navigate to http://localhost:4200/. Use `ng serve -o` to automatically open the browser. The application will automatically reload if you change any of the source files.
+### :dart: Running the frontend
+
+Run `npm run start:frontend` for a dev server and navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
