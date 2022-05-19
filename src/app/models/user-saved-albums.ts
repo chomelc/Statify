@@ -1,4 +1,4 @@
-export interface FormattedSavedTracks {
+export interface FormattedSavedAlbums {
   href: string;
   items: Object[];
   limit: number;

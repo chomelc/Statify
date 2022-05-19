@@ -1,0 +1,32 @@
+.profile-header {
+    text-align: center;
+}
+
+#name {
+    font-size: 3rem;
+    padding-top: 1rem;
+}
+
+#id {
+    font-size: 2rem;
+}
+
+#id a {
+    color: #1DB954;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#id a:hover {
+    text-decoration: underline;
+}
+
+#country {
+    font-size: 1.5rem;
+}
+
+img {
+    border-radius: 50%;
+    outline: solid 6px #1DB954;
+    outline-offset: 5px;
+}

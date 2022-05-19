@@ -5,20 +5,27 @@ import { SpotifyUserSavedTracksService } from '../services/spotify-user-saved-tr
 @Component({
   selector: 'app-user-saved-tracks',
   templateUrl: './user-saved-tracks.component.html',
-  styleUrls: ['./user-saved-tracks.component.css']
+  styleUrls: ['./user-saved-tracks.component.css'],
 })
 export class UserSavedTracksComponent implements OnInit {
   @Input() accessToken!: string;
-  tracks? : FormattedSavedTracks;
-  constructor(private spotifyUserSavedTracksService : SpotifyUserSavedTracksService) { }
+  tracks?: FormattedSavedTracks;
+  tracksTotal = [{}];
+
+  constructor(
+    private spotifyUserSavedTracksService: SpotifyUserSavedTracksService
+  ) {}
 
   ngOnInit(): void {
     this.getSavedTracks();
   }
 
-  getSavedTracks():void {
-    this.spotifyUserSavedTracksService.getTracks(this.accessToken).subscribe((data: any) => {
-      this.tracks = data;
-    })
+  getSavedTracks(): void {
+    this.spotifyUserSavedTracksService
+      .getTracks(this.accessToken)
+      .subscribe((data: any) => {
+        this.tracks = data;
+        this.tracksTotal = [{ name: 'Saved tracks', value: data.total }];
+      });
   }
 }

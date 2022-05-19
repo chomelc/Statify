@@ -1,12 +1,12 @@
 export interface FormattedFollowingArtists {
-    artists: Artists;
+  artists: Artists;
 }
 
 export interface Artists {
-    href : string;
-    items : Object[];
-    limit : number;
-    next : string|null;
-    cursors : Object[];
-    total : number;
+  href: string;
+  items: Object[];
+  limit: number;
+  next: string | null;
+  cursors: Object[];
+  total: number;
 }

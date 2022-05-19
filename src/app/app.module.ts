@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { LoginComponent } from './login/login.component';
 import { SpotifyGlobalService } from './services/spotify-global.service';
@@ -22,6 +23,8 @@ import { SpotifyUserFollowedArtistsService } from './services/spotify-user-follo
 import { UserSavedTracksComponent } from './user-saved-tracks/user-saved-tracks.component';
 import { SpotifyUserSavedTracksService } from './services/spotify-user-saved-tracks.service';
 import { FlagEmojiPipe } from './pipes/flag-emoji.pipe';
+import { UserSavedAlbumsComponent } from './user-saved-albums/user-saved-albums.component';
+import { SpotifyUserSavedAlbumsService } from './services/spotify-user-saved-albums.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { FlagEmojiPipe } from './pipes/flag-emoji.pipe';
     UserPlaylistsComponent,
     UserFollowedArtistsComponent,
     UserSavedTracksComponent,
-    FlagEmojiPipe
+    FlagEmojiPipe,
+    UserSavedAlbumsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,15 +45,17 @@ import { FlagEmojiPipe } from './pipes/flag-emoji.pipe';
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatTabsModule,
+    NgxChartsModule,
   ],
   providers: [
     SpotifyGlobalService,
     SpotifyProfileService,
     SpotifyUserPlaylistsService,
     SpotifyUserFollowedArtistsService,
-    SpotifyUserSavedTracksService
+    SpotifyUserSavedTracksService,
+    SpotifyUserSavedAlbumsService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

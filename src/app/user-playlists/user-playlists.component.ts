@@ -6,23 +6,28 @@ import { SpotifyUserPlaylistsService } from '../services/spotify-user-playlists.
 @Component({
   selector: 'app-user-playlists',
   templateUrl: './user-playlists.component.html',
-  styleUrls: ['./user-playlists.component.css']
+  styleUrls: ['./user-playlists.component.css'],
 })
 export class UserPlaylistsComponent implements OnInit {
-
   @Input() userId?: string;
   @Input() accessToken!: string;
   playlists?: FormattedPlaylists;
+  playlistsTotal = [{}];
 
-  constructor(private spotifyUserPlaylistsService: SpotifyUserPlaylistsService) { }
+  constructor(
+    private spotifyUserPlaylistsService: SpotifyUserPlaylistsService
+  ) {}
 
   ngOnInit(): void {
-    this.getPlaylists()
+    this.getPlaylists();
   }
 
   getPlaylists(): void {
-    this.spotifyUserPlaylistsService.getPlaylists(this.userId, this.accessToken).subscribe((data: any) => {
-      this.playlists = data;
-    });
+    this.spotifyUserPlaylistsService
+      .getPlaylists(this.userId, this.accessToken)
+      .subscribe((data: any) => {
+        this.playlists = data;
+        this.playlistsTotal = [{ name: 'Playlists', value: data.total }];
+      });
   }
 }

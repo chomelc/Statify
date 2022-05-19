@@ -5,20 +5,29 @@ import { SpotifyUserFollowedArtistsService } from '../services/spotify-user-foll
 @Component({
   selector: 'app-user-followed-artists',
   templateUrl: './user-followed-artists.component.html',
-  styleUrls: ['./user-followed-artists.component.css']
+  styleUrls: ['./user-followed-artists.component.css'],
 })
 export class UserFollowedArtistsComponent implements OnInit {
   @Input() accessToken!: string;
   artists?: FormattedFollowingArtists;
-  constructor(private spotifyUserFollowedArtistsService: SpotifyUserFollowedArtistsService) { }
+  artistsTotal = [{}];
+
+  constructor(
+    private spotifyUserFollowedArtistsService: SpotifyUserFollowedArtistsService
+  ) {}
 
   ngOnInit(): void {
     this.getFollowedArtists();
   }
 
   getFollowedArtists(): void {
-    this.spotifyUserFollowedArtistsService.getFollowing(this.accessToken).subscribe((data: any) => {
-      this.artists = data;
-    })
+    this.spotifyUserFollowedArtistsService
+      .getFollowing(this.accessToken)
+      .subscribe((data: any) => {
+        this.artists = data;
+        this.artistsTotal = [
+          { name: 'Followed artists', value: data.artists.total },
+        ];
+      });
   }
 }

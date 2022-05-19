@@ -1,5 +1,11 @@
-.navbar-text {
-    font-style: italic;
+.navbar-brand {
+    color: #eee;
+    font-size: 3rem;
+}
+
+.navbar-brand small {
+    color: #B8B8B8;
+    font-size: 2rem;
 }
 
 .container {
@@ -12,8 +18,19 @@
     padding: 5px;
 }
 
-.button-title{
-    padding: 5px 5px 5px 10px; 
+#login {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#loggedin {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-title {
+    padding: 5px 5px 5px 10px;
 }
 
 a.mat-button .mat-icon,
@@ -21,6 +38,16 @@ a.mat-button .mat-icon,
 a.mat-raised-button .mat-icon,
 a.mat-flat-button .mat-icon,
 a.mat-stroked-button .mat-icon {
-  vertical-align: top;
-  font-size: 1.25em;
+    vertical-align: top;
+    font-size: 1.25em;
+}
+
+.footer-div {
+    background-color: #EEEEEE10;
+    padding: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
 }

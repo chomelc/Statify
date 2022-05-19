@@ -1,16 +1,56 @@
-<mat-card class="example-card">
-    <mat-card-title class="h3">Logged in as {{profile?.display_name}}</mat-card-title>
-    <mat-card-subtitle class="h6">{{profile?.country}} {{profile?.country | flagEmoji}} | {{profile?.product | titlecase }}
-    </mat-card-subtitle>
-    <mat-card-content>
-        <img src="{{profile?.images?.[0]?.url}}" [alt]="profile?.display_name" class="rounded" />
-        <p>Followers: {{profile?.followers?.total}}</p>
-        <app-user-playlists [userId]="profile?.id" [accessToken]="accessToken"></app-user-playlists>
-        <app-user-followed-artists [accessToken]="accessToken"></app-user-followed-artists>
-        <app-user-saved-tracks [accessToken]="accessToken"></app-user-saved-tracks>
-    </mat-card-content>
-    <mat-card-actions>
-        <!-- <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button> -->
-    </mat-card-actions>
-</mat-card>
+<div class="display-1 profile-header">
+  <img
+    src="{{profile?.images?.[0]?.url}}"
+    [alt]="profile?.display_name"
+    height="150px"
+    width="150px"
+  />
+  <p id="name">{{ profile?.display_name }}</p>
+  <p id="id">
+    <a [href]="profile?.external_urls?.spotify">@{{ profile?.id }}</a>
+  </p>
+  <p id="country">
+    {{ profile?.country }} {{ profile?.country | flagEmoji }} |
+    {{ profile?.product | titlecase }}
+  </p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ngx-charts-number-card
+        [results]="followers"
+        [view]="[150, 150]"
+        bandColor="#1DB954"
+      >
+      </ngx-charts-number-card>
+    </div>
+    <div class="col">
+      <app-user-playlists
+        [userId]="profile?.id"
+        [accessToken]="accessToken"
+      ></app-user-playlists>
+    </div>
+    <div class="col">
+      <app-user-followed-artists
+        [accessToken]="accessToken"
+      ></app-user-followed-artists>
+    </div>
+    <div class="col">
+      <app-user-saved-tracks
+        [accessToken]="accessToken"
+      ></app-user-saved-tracks>
+    </div>
+    <div class="col">
+      <app-user-saved-albums
+        [accessToken]="accessToken"
+      ></app-user-saved-albums>
+    </div>
+  </div>
+</div>
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Last 4 weeks">Content 1</mat-tab>
+  <mat-tab label="Last 6 months">Content 2</mat-tab>
+  <mat-tab label="All Time">Content 3</mat-tab>
+</mat-tab-group>

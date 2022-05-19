@@ -1,27 +1,47 @@
-<nav class="navbar bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <!-- <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+<nav class="navbar">
+  <div class="container-fluid">
+    <div>
+      <span class="navbar-brand mb-0 h1 display-1">
+        <!-- <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
                 class="d-inline-block align-text-top"> -->
-            {{title}}
-        </a>
-        <span class="navbar-text">
-            Visualize your Spotify statistics.
-        </span>
-        <div class="logout">
-            <a *ngIf="isLoggedIn" mat-raised-button aria-label="spotify-icon" (click)="logout()">
-                <mat-icon svgIcon="spotify-icon"></mat-icon>
-                <span class="button-title">Logout</span>
-            </a>
-        </div>
+        {{ title }}
+        <small>Visualize your Spotify statistics.</small>
+      </span>
     </div>
+    <div class="logout">
+      <a
+        *ngIf="isLoggedIn"
+        mat-raised-button
+        aria-label="spotify-icon"
+        (click)="logout()"
+      >
+        <mat-icon svgIcon="spotify-icon"></mat-icon>
+        <span class="button-title display">Logout</span>
+      </a>
+    </div>
+  </div>
 </nav>
 
 <div class="container">
-    <div *ngIf="!isLoggedIn;else userIsLoggedIn" id="login">
-        <app-login></app-login>
+  <div *ngIf="!isLoggedIn; else userIsLoggedIn" id="login">
+    <app-login></app-login>
+  </div>
+  <ng-template #userIsLoggedIn>
+    <div id="loggedin">
+      <app-profile [accessToken]="accessToken"></app-profile>
     </div>
-    <ng-template #userIsLoggedIn id="loggedin">
-        <app-profile [accessToken]="accessToken"></app-profile>
-    </ng-template>
+  </ng-template>
 </div>
+
+<nav class="navbar fixed-bottom footer-div">
+  <div class="container-fluid footer">
+    <i>We are not related to Spotify AB or any of its partners in any way.</i>
+    <a href="https://www.buymeacoffee.com/chomelcl" target="_blank">
+      <img
+        src="../../assets/img/bmc-button.png"
+        alt="Buy me a coffee!"
+        width="150px"
+      />
+    </a>
+  </div>
+</nav>

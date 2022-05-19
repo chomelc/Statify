@@ -5,13 +5,12 @@ import { FormattedProfile } from '../models/profile-model';
 import { SpotifyGlobalService } from './spotify-global.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SpotifyProfileService {
-
   private profileUrl: string = 'me';
 
-  constructor(private spotifyGlobalService: SpotifyGlobalService) { }
+  constructor(private spotifyGlobalService: SpotifyGlobalService) {}
 
   public getProfile(token: string): Observable<FormattedProfile> {
     return this.spotifyGlobalService.getQuery(this.profileUrl, token).pipe(
@@ -31,12 +30,13 @@ export class SpotifyProfileService {
             images: res.images,
             product: res.product,
             type: res.type,
-            uri: res.uri
+            uri: res.uri,
           };
         }
       }),
       catchError((err) => {
         throw new Error(err.message);
-      }));
+      })
+    );
   }
 }

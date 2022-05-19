@@ -1,20 +1,18 @@
-import { Injectable, Input } from '@angular/core';
-import { catchError, map, Observable } from 'rxjs';
-import { FormattedPlaylists } from '../models/user-playlists-model';
+import { Injectable } from '@angular/core';
+import { Observable, map, catchError } from 'rxjs';
+import { FormattedSavedAlbums } from '../models/user-saved-albums';
 import { SpotifyGlobalService } from './spotify-global.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SpotifyUserPlaylistsService {
+export class SpotifyUserSavedAlbumsService {
+  private tracksUrl: string = 'me/albums?limit=50';
+
   constructor(private spotifyGlobalService: SpotifyGlobalService) {}
 
-  public getPlaylists(
-    userId: string | undefined,
-    token: string
-  ): Observable<FormattedPlaylists> {
-    const playlistsUrl: string = `users/${userId}/playlists`;
-    return this.spotifyGlobalService.getQuery(playlistsUrl, token).pipe(
+  public getTracks(token: string): Observable<FormattedSavedAlbums> {
+    return this.spotifyGlobalService.getQuery(this.tracksUrl, token).pipe(
       map((res: any) => {
         if (!res) {
           throw new Error('Value expected!');
