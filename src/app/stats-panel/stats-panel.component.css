@@ -1,0 +1,7 @@
+.tabs {
+    color: #eee;
+}
+
+::ng-deep .mat-ink-bar {
+    background-color: #1DB954 !important;
+}

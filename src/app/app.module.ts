@@ -25,6 +25,10 @@ import { SpotifyUserSavedTracksService } from './services/spotify-user-saved-tra
 import { FlagEmojiPipe } from './pipes/flag-emoji.pipe';
 import { UserSavedAlbumsComponent } from './user-saved-albums/user-saved-albums.component';
 import { SpotifyUserSavedAlbumsService } from './services/spotify-user-saved-albums.service';
+import { StatsPanelComponent } from './stats-panel/stats-panel.component';
+import { FourWeeksStatsComponent } from './four-weeks-stats/four-weeks-stats.component';
+import { SixMonthsStatsComponent } from './six-months-stats/six-months-stats.component';
+import { AllTimeStatsComponent } from './all-time-stats/all-time-stats.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { SpotifyUserSavedAlbumsService } from './services/spotify-user-saved-alb
     UserSavedTracksComponent,
     FlagEmojiPipe,
     UserSavedAlbumsComponent,
+    StatsPanelComponent,
+    FourWeeksStatsComponent,
+    SixMonthsStatsComponent,
+    AllTimeStatsComponent,
   ],
   imports: [
     BrowserModule,

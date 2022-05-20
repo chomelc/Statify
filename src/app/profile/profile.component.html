@@ -21,7 +21,7 @@
       <ngx-charts-number-card
         [results]="followers"
         [view]="[150, 150]"
-        bandColor="#1DB954"
+        bandColor="#eeeeee40"
       >
       </ngx-charts-number-card>
     </div>
@@ -49,8 +49,4 @@
   </div>
 </div>
 
-<mat-tab-group mat-align-tabs="center">
-  <mat-tab label="Last 4 weeks">Content 1</mat-tab>
-  <mat-tab label="Last 6 months">Content 2</mat-tab>
-  <mat-tab label="All Time">Content 3</mat-tab>
-</mat-tab-group>
+<app-stats-panel></app-stats-panel>
