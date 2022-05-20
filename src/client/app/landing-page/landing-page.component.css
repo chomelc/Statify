@@ -45,9 +45,24 @@ a.mat-stroked-button .mat-icon {
 .footer-div {
     background-color: #EEEEEE10;
     padding: 20px;
+    font-size: 0.9rem;
 }
 
 .footer {
     display: flex;
     justify-content: space-around;
+}
+
+#github {
+    margin: 0;
+}
+
+#github a {
+    color: #eee;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#github a:hover {
+    color: #1DB954;
 }
