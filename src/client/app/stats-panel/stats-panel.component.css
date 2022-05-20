@@ -3,8 +3,14 @@
     font-size: 1.5rem;
 }
 
+::ng-deep .mat-tab-label-active {
+    background-color: #1DB95480;
+    border-radius: 5px;
+}
+
 ::ng-deep .mat-ink-bar {
-    background-color: #1DB954 !important;
+    /* background-color: #1DB954 !important; */
+    display: none;
 }
 
 ::ng-deep .gauge text {

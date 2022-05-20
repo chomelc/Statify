@@ -1,4 +1,8 @@
-<mat-tab-group mat-align-tabs="center">
+<mat-tab-group
+  mat-align-tabs="center"
+  #matTabGroup
+  (selectedTabChange)="onMatTabChanged()"
+>
   <mat-tab>
     <ng-template mat-tab-label>
       <span class="tabs">Last 4 weeks</span>
@@ -9,7 +13,6 @@
     <ng-template mat-tab-label>
       <span class="tabs">Last 6 months</span>
     </ng-template>
-
     <app-six-months-stats></app-six-months-stats
   ></mat-tab>
   <mat-tab
