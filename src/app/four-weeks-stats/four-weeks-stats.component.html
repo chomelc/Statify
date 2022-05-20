@@ -1,20 +1,43 @@
-<mat-card class="top-track-card"
-  ><mat-card-subtitle>Top track</mat-card-subtitle
-  ><mat-card-title class="display-6"
-    >{{ tracks?.items?.[0].name }} -
-    {{ tracks?.items?.[0].artists[0].name }}</mat-card-title
-  ></mat-card
->
-
-<ngx-charts-gauge
-  class="gauge"
-  [bigSegments]="0"
-  [angleSpan]="360"
-  [startAngle]="0"
-  [view]="[350, 350]"
-  [valueFormatting]="valueFormatting"
-  units="Popularity"
-  [customColors]="[{ name: 'Popularity', value: '#1DB95480' }]"
-  [results]="[{ name: 'Popularity', value: avgPopularity }]"
->
-</ngx-charts-gauge>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <mat-card class="top-track-card"
+        ><mat-card-subtitle>Top track</mat-card-subtitle
+        ><mat-card-title class="display-6"
+          >{{ tracks?.items?.[0].name }} -
+          {{ tracks?.items?.[0].artists[0].name }}</mat-card-title
+        ></mat-card
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ngx-charts-gauge
+        class="gauge"
+        [bigSegments]="0"
+        [angleSpan]="360"
+        [startAngle]="0"
+        [view]="[350, 350]"
+        [valueFormatting]="popularityFormatting"
+        units="Popularity"
+        [customColors]="[{ name: 'Popularity', value: '#1DB95480' }]"
+        [results]="[{ name: 'Popularity', value: avgPopularity }]"
+      >
+      </ngx-charts-gauge>
+    </div>
+    <div class="col">
+      <ngx-charts-gauge
+        class="gauge"
+        [bigSegments]="0"
+        [angleSpan]="360"
+        [startAngle]="0"
+        [view]="[350, 350]"
+        [valueFormatting]="danceabilityFormatting"
+        units="Danceability"
+        [customColors]="[{ name: 'Danceability', value: '#1DB95480' }]"
+        [results]="[{ name: 'Danceability', value: avgDanceability * 100 }]"
+      >
+      </ngx-charts-gauge>
+    </div>
+  </div>
+</div>

@@ -7,12 +7,13 @@ import { SpotifyGlobalService } from './spotify-global.service';
   providedIn: 'root',
 })
 export class TopTracksService {
-  private baseUrl: string = 'me/top/tracks?limit=50';
+  private baseTracksUrl: string = 'me/top/tracks?limit=50';
+  private baseFeaturesUrl: string = 'audio-features?ids=';
 
   constructor(private spotifyGlobalService: SpotifyGlobalService) {}
 
   public getTopTracks4Weeks(token: string): Observable<FormattedSavedTracks> {
-    let tracksUrl = this.baseUrl + '&time_range=short_term';
+    let tracksUrl = this.baseTracksUrl + '&time_range=short_term';
     return this.spotifyGlobalService.getQuery(tracksUrl, token).pipe(
       map((res: any) => {
         if (!res) {
@@ -36,7 +37,7 @@ export class TopTracksService {
   }
 
   public getTopTracks6Months(token: string): Observable<FormattedSavedTracks> {
-    let tracksUrl = this.baseUrl + '&time_range=medium_term';
+    let tracksUrl = this.baseTracksUrl + '&time_range=medium_term';
     return this.spotifyGlobalService.getQuery(tracksUrl, token).pipe(
       map((res: any) => {
         if (!res) {
@@ -58,8 +59,9 @@ export class TopTracksService {
       })
     );
   }
+
   public getTopTracksAllTime(token: string): Observable<FormattedSavedTracks> {
-    let tracksUrl = this.baseUrl + '&time_range=long_term';
+    let tracksUrl = this.baseTracksUrl + '&time_range=long_term';
     return this.spotifyGlobalService.getQuery(tracksUrl, token).pipe(
       map((res: any) => {
         if (!res) {
@@ -73,6 +75,24 @@ export class TopTracksService {
             offset: res.offset,
             previous: res.previous,
             total: res.total,
+          };
+        }
+      }),
+      catchError((err) => {
+        throw new Error(err.message);
+      })
+    );
+  }
+
+  public getAudioFeatures(token: string, trackIds: string) {
+    let featuresUrl = this.baseFeaturesUrl + trackIds;
+    return this.spotifyGlobalService.getQuery(featuresUrl, token).pipe(
+      map((res: any) => {
+        if (!res) {
+          throw new Error('Value expected!');
+        } else {
+          return {
+            audio_features: res.audio_features,
           };
         }
       }),

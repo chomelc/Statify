@@ -9,6 +9,7 @@
 
 ::ng-deep .gauge text {
     fill: #eee;
+    transform: scale(1, 1)
 }
 
 ::ng-deep .top-track-card {
