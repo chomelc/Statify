@@ -1,48 +1,50 @@
-<nav class="navbar">
-  <div class="container-fluid">
-    <div>
-      <span class="navbar-brand mb-0 h1 display-1">
-        <!-- <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+<div class="d-flex flex-column min-vh-100">
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div>
+        <span class="navbar-brand mb-0 h1 display-1">
+          <!-- <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
                 class="d-inline-block align-text-top"> -->
-        {{ title }}
-        <small>Visualize your Spotify statistics.</small>
-      </span>
+          {{ title }}
+          <small>Visualize your Spotify statistics.</small>
+        </span>
+      </div>
+      <div class="logout">
+        <a
+          *ngIf="isLoggedIn"
+          mat-raised-button
+          aria-label="spotify-icon"
+          (click)="logout()"
+          routerLink="/"
+        >
+          <mat-icon svgIcon="spotify-icon"></mat-icon>
+          <span class="button-title display">Logout</span>
+        </a>
+      </div>
     </div>
-    <div class="logout">
-      <a
-        *ngIf="isLoggedIn"
-        mat-raised-button
-        aria-label="spotify-icon"
-        (click)="logout()"
-        routerLink="/"
-      >
-        <mat-icon svgIcon="spotify-icon"></mat-icon>
-        <span class="button-title display">Logout</span>
+  </nav>
+
+  <div class="container">
+    <div *ngIf="!isLoggedIn; else userIsLoggedIn" id="login">
+      <app-login></app-login>
+    </div>
+    <ng-template #userIsLoggedIn>
+      <div id="loggedin">
+        <app-profile></app-profile>
+      </div>
+    </ng-template>
+  </div>
+
+  <nav class="navbar mt-auto footer-div">
+    <div class="container-fluid footer">
+      <i>We are not related to Spotify AB or any of its partners in any way.</i>
+      <a href="https://www.buymeacoffee.com/chomelcl" target="_blank">
+        <img
+          src="../../assets/img/bmc-button.png"
+          alt="Buy me a coffee!"
+          width="150px"
+        />
       </a>
     </div>
-  </div>
-</nav>
-
-<div class="container">
-  <div *ngIf="!isLoggedIn; else userIsLoggedIn" id="login">
-    <app-login></app-login>
-  </div>
-  <ng-template #userIsLoggedIn>
-    <div id="loggedin">
-      <app-profile></app-profile>
-    </div>
-  </ng-template>
+  </nav>
 </div>
-
-<nav class="navbar bottom footer-div">
-  <div class="container-fluid footer">
-    <i>We are not related to Spotify AB or any of its partners in any way.</i>
-    <a href="https://www.buymeacoffee.com/chomelcl" target="_blank">
-      <img
-        src="../../assets/img/bmc-button.png"
-        alt="Buy me a coffee!"
-        width="150px"
-      />
-    </a>
-  </div>
-</nav>
