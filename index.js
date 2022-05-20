@@ -36,7 +36,7 @@ var generateRandomString = function (length) {
 // redirects to the Spotify Connection Page
 app.get("/login", (req, res) => {
   const scope =
-    "user-read-private user-read-email user-follow-read user-library-read";
+    "user-read-private user-read-email user-top-read user-follow-read user-library-read";
   const state = generateRandomString(16);
   res.cookie(stateKey, state);
   res.set({

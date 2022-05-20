@@ -1,1 +1,12 @@
-<p>six-months-stats works!</p>
+<ngx-charts-gauge
+  class="gauge"
+  [bigSegments]="0"
+  [angleSpan]="360"
+  [startAngle]="0"
+  [view]="[350, 350]"
+  [valueFormatting]="valueFormatting"
+  units="Popularity"
+  [customColors]="[{ name: 'Popularity', value: '#1DB95480' }]"
+  [results]="[{ name: 'Popularity', value: avgPopularity }]"
+>
+</ngx-charts-gauge>

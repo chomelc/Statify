@@ -1,7 +1,12 @@
 .tabs {
     color: #eee;
+    font-size: 1.5rem;
 }
 
 ::ng-deep .mat-ink-bar {
     background-color: #1DB954 !important;
+}
+
+::ng-deep .gauge text {
+    fill: #eee;
 }

@@ -1,6 +1,6 @@
 export interface FormattedSavedTracks {
   href: string;
-  items: Object[];
+  items: any[];
   limit: number;
   next: string | null;
   offset: number;

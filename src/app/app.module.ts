@@ -29,6 +29,7 @@ import { StatsPanelComponent } from './stats-panel/stats-panel.component';
 import { FourWeeksStatsComponent } from './four-weeks-stats/four-weeks-stats.component';
 import { SixMonthsStatsComponent } from './six-months-stats/six-months-stats.component';
 import { AllTimeStatsComponent } from './all-time-stats/all-time-stats.component';
+import { TopTracksService } from './services/top-tracks.service';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AllTimeStatsComponent } from './all-time-stats/all-time-stats.component
     SpotifyUserFollowedArtistsService,
     SpotifyUserSavedTracksService,
     SpotifyUserSavedAlbumsService,
+    TopTracksService,
   ],
   bootstrap: [AppComponent],
 })
