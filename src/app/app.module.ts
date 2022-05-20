@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { LoginComponent } from './login/login.component';
@@ -56,6 +57,7 @@ import { TopTracksService } from './services/top-tracks.service';
     MatIconModule,
     MatTabsModule,
     NgxChartsModule,
+    MatCardModule,
   ],
   providers: [
     SpotifyGlobalService,

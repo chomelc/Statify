@@ -10,3 +10,18 @@
 ::ng-deep .gauge text {
     fill: #eee;
 }
+
+::ng-deep .top-track-card {
+    width: 500px;
+    margin-top: 15px;
+    background-color: #eeeeee20;
+    color: #eee;
+}
+
+::ng-deep .top-track-card .mat-card-subtitle {
+    color: #1DB954;
+}
+
+::ng-deep .top-track-card .mat-card-title {
+    font-size: 1rem;
+}
