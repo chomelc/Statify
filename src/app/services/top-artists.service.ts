@@ -11,7 +11,9 @@ export class TopArtistsService {
 
   constructor(private spotifyGlobalService: SpotifyGlobalService) {}
 
-  public getTopArtists4Weeks(token: string): Observable<FormattedSavedTracks> {
+  public getTopArtists4Weeks(
+    token: string | null
+  ): Observable<FormattedSavedTracks> {
     let url = this.artistsUrl + '&time_range=short_term';
     return this.spotifyGlobalService.getQuery(url, token).pipe(
       map((res: any) => {
@@ -35,7 +37,9 @@ export class TopArtistsService {
     );
   }
 
-  public getTopArtists6Months(token: string): Observable<FormattedSavedTracks> {
+  public getTopArtists6Months(
+    token: string | null
+  ): Observable<FormattedSavedTracks> {
     let url = this.artistsUrl + '&time_range=medium_term';
     return this.spotifyGlobalService.getQuery(url, token).pipe(
       map((res: any) => {
@@ -59,7 +63,9 @@ export class TopArtistsService {
     );
   }
 
-  public getTopArtistsAllTime(token: string): Observable<FormattedSavedTracks> {
+  public getTopArtistsAllTime(
+    token: string | null
+  ): Observable<FormattedSavedTracks> {
     let url = this.artistsUrl + '&time_range=long_term';
     return this.spotifyGlobalService.getQuery(url, token).pipe(
       map((res: any) => {

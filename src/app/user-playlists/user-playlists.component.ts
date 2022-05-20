@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { FormattedPlaylists } from '../models/user-playlists-model';
 import { SpotifyUserPlaylistsService } from '../services/spotify-user-playlists.service';
+import { WebStorageService } from '../services/web-storage.service';
 
 @Component({
   selector: 'app-user-playlists',
@@ -10,11 +11,11 @@ import { SpotifyUserPlaylistsService } from '../services/spotify-user-playlists.
 })
 export class UserPlaylistsComponent implements OnInit {
   @Input() userId?: string;
-  @Input() accessToken!: string;
   playlists?: FormattedPlaylists;
   playlistsTotal = [{}];
 
   constructor(
+    private webStorageService: WebStorageService,
     private spotifyUserPlaylistsService: SpotifyUserPlaylistsService
   ) {}
 
@@ -24,7 +25,7 @@ export class UserPlaylistsComponent implements OnInit {
 
   getPlaylists(): void {
     this.spotifyUserPlaylistsService
-      .getPlaylists(this.userId, this.accessToken)
+      .getPlaylists(this.userId, this.webStorageService.get('ACCESS_TOKEN'))
       .subscribe((data: any) => {
         this.playlists = data;
         this.playlistsTotal = [{ name: 'Playlists', value: data.total }];

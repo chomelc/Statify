@@ -12,7 +12,7 @@ export class SpotifyProfileService {
 
   constructor(private spotifyGlobalService: SpotifyGlobalService) {}
 
-  public getProfile(token: string): Observable<FormattedProfile> {
+  public getProfile(token: string | null): Observable<FormattedProfile> {
     return this.spotifyGlobalService.getQuery(this.profileUrl, token).pipe(
       map((res: any) => {
         if (!res) {

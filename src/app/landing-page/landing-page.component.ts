@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { WebStorageService } from '../services/web-storage.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -12,13 +13,12 @@ export class LandingPageComponent implements OnInit {
   // title: string = "Spotistics";
   title: string = 'Statify';
   isLoggedIn: boolean = false;
-  accessToken: string = '';
-  refreshToken: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private webStorageService: WebStorageService
   ) {
     this.matIconRegistry.addSvgIcon(
       'spotify-icon',
@@ -31,11 +31,14 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
     // retrieve authorization parameters
     this.route.queryParams.subscribe((params) => {
-      this.accessToken = params['access_token'];
-      this.refreshToken = params['refresh_token'];
+      this.webStorageService.set('ACCESS_TOKEN', params['access_token']);
+      this.webStorageService.set('REFRESH_TOKEN', params['refresh_token']);
     });
 
-    if (this.accessToken && this.refreshToken) {
+    if (
+      this.webStorageService.get('ACCESS_TOKEN') &&
+      this.webStorageService.get('REFRESH_TOKEN')
+    ) {
       this.isLoggedIn = true;
     }
   }

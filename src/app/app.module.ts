@@ -32,6 +32,7 @@ import { SixMonthsStatsComponent } from './six-months-stats/six-months-stats.com
 import { AllTimeStatsComponent } from './all-time-stats/all-time-stats.component';
 import { TopTracksService } from './services/top-tracks.service';
 import { TopArtistsService } from './services/top-artists.service';
+import { WebStorageService } from './services/web-storage.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { TopArtistsService } from './services/top-artists.service';
     MatCardModule,
   ],
   providers: [
+    WebStorageService,
     SpotifyGlobalService,
     SpotifyProfileService,
     SpotifyUserPlaylistsService,

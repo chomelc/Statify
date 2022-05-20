@@ -12,7 +12,9 @@ export class TopTracksService {
 
   constructor(private spotifyGlobalService: SpotifyGlobalService) {}
 
-  public getTopTracks4Weeks(token: string): Observable<FormattedSavedTracks> {
+  public getTopTracks4Weeks(
+    token: string | null
+  ): Observable<FormattedSavedTracks> {
     let tracksUrl = this.baseTracksUrl + '&time_range=short_term';
     return this.spotifyGlobalService.getQuery(tracksUrl, token).pipe(
       map((res: any) => {
@@ -36,7 +38,9 @@ export class TopTracksService {
     );
   }
 
-  public getTopTracks6Months(token: string): Observable<FormattedSavedTracks> {
+  public getTopTracks6Months(
+    token: string | null
+  ): Observable<FormattedSavedTracks> {
     let tracksUrl = this.baseTracksUrl + '&time_range=medium_term';
     return this.spotifyGlobalService.getQuery(tracksUrl, token).pipe(
       map((res: any) => {
@@ -60,7 +64,9 @@ export class TopTracksService {
     );
   }
 
-  public getTopTracksAllTime(token: string): Observable<FormattedSavedTracks> {
+  public getTopTracksAllTime(
+    token: string | null
+  ): Observable<FormattedSavedTracks> {
     let tracksUrl = this.baseTracksUrl + '&time_range=long_term';
     return this.spotifyGlobalService.getQuery(tracksUrl, token).pipe(
       map((res: any) => {
@@ -84,7 +90,7 @@ export class TopTracksService {
     );
   }
 
-  public getAudioFeatures(token: string, trackIds: string) {
+  public getAudioFeatures(token: string | null, trackIds: string) {
     let featuresUrl = this.baseFeaturesUrl + trackIds;
     return this.spotifyGlobalService.getQuery(featuresUrl, token).pipe(
       map((res: any) => {

@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class SpotifyGlobalService {
   constructor(private http: HttpClient) {}
 
-  public getQuery(query: string, token: string) {
+  public getQuery(query: string, token: string | null) {
     // common url
     const url: string = `https://api.spotify.com/v1/${query}`;
 

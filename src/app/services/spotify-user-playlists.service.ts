@@ -11,7 +11,7 @@ export class SpotifyUserPlaylistsService {
 
   public getPlaylists(
     userId: string | undefined,
-    token: string
+    token: string | null
   ): Observable<FormattedPlaylists> {
     const playlistsUrl: string = `users/${userId}/playlists`;
     return this.spotifyGlobalService.getQuery(playlistsUrl, token).pipe(

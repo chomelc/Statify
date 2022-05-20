@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormattedProfile } from '../models/profile-model';
 import { SpotifyProfileService } from '../services/spotify-profile.service';
+import { WebStorageService } from '../services/web-storage.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,11 +9,13 @@ import { SpotifyProfileService } from '../services/spotify-profile.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  @Input() accessToken!: string;
   profile?: FormattedProfile;
   followers? = [{}];
 
-  constructor(private spotifyProfileService: SpotifyProfileService) {}
+  constructor(
+    private spotifyProfileService: SpotifyProfileService,
+    private webStorageService: WebStorageService
+  ) {}
 
   ngOnInit(): void {
     this.getProfile();
@@ -20,7 +23,7 @@ export class ProfileComponent implements OnInit {
 
   getProfile(): void {
     this.spotifyProfileService
-      .getProfile(this.accessToken)
+      .getProfile(this.webStorageService.get('ACCESS_TOKEN'))
       .subscribe((data: any) => {
         this.profile = data;
         this.followers = [{ name: 'Followers', value: data.followers.total }];

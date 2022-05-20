@@ -11,7 +11,9 @@ export class SpotifyUserFollowedArtistsService {
 
   constructor(private spotifyGlobalService: SpotifyGlobalService) {}
 
-  public getFollowing(token: string): Observable<FormattedFollowingArtists> {
+  public getFollowing(
+    token: string | null
+  ): Observable<FormattedFollowingArtists> {
     return this.spotifyGlobalService.getQuery(this.followingUrl, token).pipe(
       map((res: any) => {
         if (!res) {

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormattedSavedTracks } from '../models/user-saved-tracks';
 import { TopArtistsService } from '../services/top-artists.service';
 import { TopTracksService } from '../services/top-tracks.service';
+import { WebStorageService } from '../services/web-storage.service';
 
 @Component({
   selector: 'app-four-weeks-stats',
@@ -9,7 +10,6 @@ import { TopTracksService } from '../services/top-tracks.service';
   styleUrls: ['./four-weeks-stats.component.css'],
 })
 export class FourWeeksStatsComponent implements OnInit {
-  @Input() accessToken!: string;
   topArtist = '';
   tracks?: FormattedSavedTracks;
   avgPopularity = 0;
@@ -22,6 +22,7 @@ export class FourWeeksStatsComponent implements OnInit {
   avgValence = 0;
 
   constructor(
+    private webStorageService: WebStorageService,
     private topTracksService: TopTracksService,
     private topArtistsService: TopArtistsService
   ) {}
@@ -33,7 +34,7 @@ export class FourWeeksStatsComponent implements OnInit {
 
   getTopArtist(): void {
     this.topArtistsService
-      .getTopArtists4Weeks(this.accessToken)
+      .getTopArtists4Weeks(this.webStorageService.get('ACCESS_TOKEN'))
       .subscribe((data: any) => {
         this.topArtist = data.items[0].name;
       });
@@ -41,7 +42,7 @@ export class FourWeeksStatsComponent implements OnInit {
 
   getTopTracks(): void {
     this.topTracksService
-      .getTopTracks4Weeks(this.accessToken)
+      .getTopTracks4Weeks(this.webStorageService.get('ACCESS_TOKEN'))
       .subscribe((data: any) => {
         this.tracks = data;
         this.avgPopularity = this.getAveragePopularity();
@@ -52,7 +53,10 @@ export class FourWeeksStatsComponent implements OnInit {
 
   getAudioFeatures(): void {
     this.topTracksService
-      .getAudioFeatures(this.accessToken, this.tracksIds)
+      .getAudioFeatures(
+        this.webStorageService.get('ACCESS_TOKEN'),
+        this.tracksIds
+      )
       .subscribe((data: any) => {
         this.features = data.audio_features;
         this.avgDanceability = this.getAverageDanceability();

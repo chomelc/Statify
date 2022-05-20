@@ -26,27 +26,18 @@
       </ngx-charts-number-card>
     </div>
     <div class="col">
-      <app-user-playlists
-        [userId]="profile?.id"
-        [accessToken]="accessToken"
-      ></app-user-playlists>
+      <app-user-playlists [userId]="profile?.id"></app-user-playlists>
     </div>
     <div class="col">
-      <app-user-followed-artists
-        [accessToken]="accessToken"
-      ></app-user-followed-artists>
+      <app-user-followed-artists></app-user-followed-artists>
     </div>
     <div class="col">
-      <app-user-saved-tracks
-        [accessToken]="accessToken"
-      ></app-user-saved-tracks>
+      <app-user-saved-tracks></app-user-saved-tracks>
     </div>
     <div class="col">
-      <app-user-saved-albums
-        [accessToken]="accessToken"
-      ></app-user-saved-albums>
+      <app-user-saved-albums></app-user-saved-albums>
     </div>
   </div>
 </div>
 
-<app-stats-panel [accessToken]="accessToken"></app-stats-panel>
+<app-stats-panel></app-stats-panel>

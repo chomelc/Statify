@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormattedFollowingArtists } from '../models/user-following-artists';
 import { SpotifyUserFollowedArtistsService } from '../services/spotify-user-followed-artists.service';
+import { WebStorageService } from '../services/web-storage.service';
 
 @Component({
   selector: 'app-user-followed-artists',
@@ -8,11 +9,11 @@ import { SpotifyUserFollowedArtistsService } from '../services/spotify-user-foll
   styleUrls: ['./user-followed-artists.component.css'],
 })
 export class UserFollowedArtistsComponent implements OnInit {
-  @Input() accessToken!: string;
   artists?: FormattedFollowingArtists;
   artistsTotal = [{}];
 
   constructor(
+    private webStorageService: WebStorageService,
     private spotifyUserFollowedArtistsService: SpotifyUserFollowedArtistsService
   ) {}
 
@@ -22,7 +23,7 @@ export class UserFollowedArtistsComponent implements OnInit {
 
   getFollowedArtists(): void {
     this.spotifyUserFollowedArtistsService
-      .getFollowing(this.accessToken)
+      .getFollowing(this.webStorageService.get('ACCESS_TOKEN'))
       .subscribe((data: any) => {
         this.artists = data;
         this.artistsTotal = [

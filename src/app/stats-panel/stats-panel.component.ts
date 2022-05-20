@@ -6,7 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./stats-panel.component.css'],
 })
 export class StatsPanelComponent implements OnInit {
-  @Input() accessToken!: string;
   constructor() {}
 
   ngOnInit(): void {}

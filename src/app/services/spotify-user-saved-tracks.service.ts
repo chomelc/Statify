@@ -11,7 +11,7 @@ export class SpotifyUserSavedTracksService {
 
   constructor(private spotifyGlobalService: SpotifyGlobalService) {}
 
-  public getTracks(token: string): Observable<FormattedSavedTracks> {
+  public getTracks(token: string | null): Observable<FormattedSavedTracks> {
     return this.spotifyGlobalService.getQuery(this.tracksUrl, token).pipe(
       map((res: any) => {
         if (!res) {
