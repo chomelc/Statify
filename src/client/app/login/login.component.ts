@@ -9,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  loginUrl: string = 'http://localhost:8000/login';
+  loginUrl: string = '/login';
 
   constructor(
     private matIconRegistry: MatIconRegistry,

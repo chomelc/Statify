@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { FormattedPlaylists } from '../models/user-playlists-model';
 import { SpotifyUserPlaylistsService } from '../services/spotify-user-playlists.service';
 import { WebStorageService } from '../services/web-storage.service';
