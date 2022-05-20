@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormattedSavedTracks } from '../models/user-saved-tracks';
+import { TopArtistsService } from '../services/top-artists.service';
 import { TopTracksService } from '../services/top-tracks.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { TopTracksService } from '../services/top-tracks.service';
 })
 export class FourWeeksStatsComponent implements OnInit {
   @Input() accessToken!: string;
+  topArtist = '';
   tracks?: FormattedSavedTracks;
   avgPopularity = 0;
   tracksIds: string = '';
@@ -19,10 +21,22 @@ export class FourWeeksStatsComponent implements OnInit {
   avgTempo = 0;
   avgValence = 0;
 
-  constructor(private topTracksService: TopTracksService) {}
+  constructor(
+    private topTracksService: TopTracksService,
+    private topArtistsService: TopArtistsService
+  ) {}
 
   ngOnInit(): void {
     this.getTopTracks();
+    this.getTopArtist();
+  }
+
+  getTopArtist(): void {
+    this.topArtistsService
+      .getTopArtists4Weeks(this.accessToken)
+      .subscribe((data: any) => {
+        this.topArtist = data.items[0].name;
+      });
   }
 
   getTopTracks(): void {

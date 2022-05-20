@@ -31,6 +31,7 @@ import { FourWeeksStatsComponent } from './four-weeks-stats/four-weeks-stats.com
 import { SixMonthsStatsComponent } from './six-months-stats/six-months-stats.component';
 import { AllTimeStatsComponent } from './all-time-stats/all-time-stats.component';
 import { TopTracksService } from './services/top-tracks.service';
+import { TopArtistsService } from './services/top-artists.service';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { TopTracksService } from './services/top-tracks.service';
     SpotifyUserSavedTracksService,
     SpotifyUserSavedAlbumsService,
     TopTracksService,
+    TopArtistsService,
   ],
   bootstrap: [AppComponent],
 })
