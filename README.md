@@ -28,4 +28,4 @@ Run `npm run start:frontend` for a dev server and navigate to http://localhost:4
 
 ---
 
-<a href="https://www.buymeacoffee.com/chomelc" target="_blank"><img src="./src/client/assets/img/bmc-button.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
+<a href="https://www.buymeacoffee.com/chomelcl" target="_blank"><img src="./src/client/assets/img/bmc-button.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
