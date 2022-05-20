@@ -3,25 +3,20 @@
     <ng-template mat-tab-label>
       <span class="tabs">Last 4 weeks</span>
     </ng-template>
-    <div class="d-flex justify-content-center">
-      <app-four-weeks-stats
-        [accessToken]="accessToken"
-      ></app-four-weeks-stats></div
-  ></mat-tab>
+    <app-four-weeks-stats [accessToken]="accessToken"></app-four-weeks-stats>
+  </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
       <span class="tabs">Last 6 months</span>
     </ng-template>
-    <div class="d-flex justify-content-center">
-      <app-six-months-stats
-        [accessToken]="accessToken"
-      ></app-six-months-stats></div
+
+    <app-six-months-stats [accessToken]="accessToken"></app-six-months-stats
   ></mat-tab>
   <mat-tab
     ><ng-template mat-tab-label>
       <span class="tabs">All time</span>
     </ng-template>
-    <div class="d-flex justify-content-center">
-      <app-all-time-stats [accessToken]="accessToken"></app-all-time-stats></div
+
+    <app-all-time-stats [accessToken]="accessToken"></app-all-time-stats
   ></mat-tab>
 </mat-tab-group>

@@ -12,6 +12,10 @@
     transform: scale(1, 1)
 }
 
+::ng-deep .value-text {
+    font-size: 18pt !important;
+}
+
 ::ng-deep .top-track-card {
     width: 500px;
     margin-top: 15px;

@@ -54,4 +54,36 @@
       </ngx-charts-gauge>
     </div>
   </div>
+  <div class="row align-items-center">
+    <div class="col" align="center">
+      <ngx-charts-number-card
+        [results]="[{ name: 'Loudness', value: avgLoudness.toFixed(2) + 'dB' }]"
+        [view]="[150, 150]"
+        bandColor="#1DB95480"
+      >
+      </ngx-charts-number-card>
+    </div>
+    <div class="col">
+      <ngx-charts-gauge
+        class="gauge"
+        [bigSegments]="0"
+        [angleSpan]="360"
+        [startAngle]="0"
+        [view]="[350, 350]"
+        [valueFormatting]="valenceFormatting"
+        units="Positiveness"
+        [customColors]="[{ name: 'Positiveness', value: '#1DB95480' }]"
+        [results]="[{ name: 'Positiveness', value: avgValence * 100 }]"
+      >
+      </ngx-charts-gauge>
+    </div>
+    <div class="col" align="center">
+      <ngx-charts-number-card
+        [results]="[{ name: 'Tempo', value: avgTempo.toFixed(0) + 'BPM' }]"
+        [view]="[150, 150]"
+        bandColor="#1DB95480"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
 </div>

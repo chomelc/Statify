@@ -15,6 +15,9 @@ export class SixMonthsStatsComponent implements OnInit {
   features: any;
   avgDanceability = 0;
   avgEnergy = 0;
+  avgLoudness = 0;
+  avgTempo = 0;
+  avgValence = 0;
 
   constructor(private topTracksService: TopTracksService) {}
 
@@ -40,6 +43,9 @@ export class SixMonthsStatsComponent implements OnInit {
         this.features = data.audio_features;
         this.avgDanceability = this.getAverageDanceability();
         this.avgEnergy = this.getAverageEnergy();
+        this.avgLoudness = this.getAverageLoudness();
+        this.avgTempo = this.getAverageTempo();
+        this.avgValence = this.getAverageValence();
       });
   }
 
@@ -91,6 +97,40 @@ export class SixMonthsStatsComponent implements OnInit {
   }
 
   energyFormatting = (data: any) => {
+    return `${parseFloat(data).toFixed(2).toString()}%`;
+  };
+
+  getAverageLoudness(): number {
+    let sum = 0;
+    if (this.features) {
+      for (let item of this.features) {
+        sum += item.loudness;
+      }
+    }
+    return sum / 50;
+  }
+
+  getAverageTempo(): number {
+    let sum = 0;
+    if (this.features) {
+      for (let item of this.features) {
+        sum += item.tempo;
+      }
+    }
+    return sum / 50;
+  }
+
+  getAverageValence(): number {
+    let sum = 0;
+    if (this.features) {
+      for (let item of this.features) {
+        sum += item.valence;
+      }
+    }
+    return sum / 50;
+  }
+
+  valenceFormatting = (data: any) => {
     return `${parseFloat(data).toFixed(2).toString()}%`;
   };
 }
