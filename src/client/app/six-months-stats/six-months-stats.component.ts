@@ -11,6 +11,7 @@ import { WebStorageService } from '../services/web-storage.service';
 })
 export class SixMonthsStatsComponent implements OnInit {
   topArtist = '';
+  topArtistImage: any;
   tracks?: FormattedSavedTracks;
   avgPopularity = 0;
   tracksIds: string = '';
@@ -37,6 +38,7 @@ export class SixMonthsStatsComponent implements OnInit {
       .getTopArtists6Months(this.webStorageService.get('ACCESS_TOKEN'))
       .subscribe((data: any) => {
         this.topArtist = data.items[0].name;
+        this.topArtistImage = data.items[0].images[0].url;
       });
   }
 

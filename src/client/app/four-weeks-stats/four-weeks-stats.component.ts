@@ -11,6 +11,7 @@ import { WebStorageService } from '../services/web-storage.service';
 })
 export class FourWeeksStatsComponent implements OnInit {
   topArtist = '';
+  topArtistImage = '';
   tracks?: FormattedSavedTracks;
   avgPopularity = 0;
   tracksIds: string = '';
@@ -37,6 +38,7 @@ export class FourWeeksStatsComponent implements OnInit {
       .getTopArtists4Weeks(this.webStorageService.get('ACCESS_TOKEN'))
       .subscribe((data: any) => {
         this.topArtist = data.items[0].name;
+        this.topArtistImage = data.items[0].images[0].url;
       });
   }
 

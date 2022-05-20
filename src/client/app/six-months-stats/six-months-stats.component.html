@@ -1,21 +1,32 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-md-auto">
-      <mat-card class="top-track-card"
-        ><mat-card-subtitle>Top track</mat-card-subtitle
-        ><mat-card-title class="display-6"
-          >{{ tracks?.items?.[0].name }} -
-          {{ tracks?.items?.[0].artists[0].name }}</mat-card-title
-        ></mat-card
-      >
+      <mat-card class="top-track-card">
+        <mat-card-title-group
+          ><mat-card-subtitle>Top track</mat-card-subtitle
+          ><mat-card-title class="display-6"
+            >{{ tracks?.items?.[0].name }} -
+            {{ tracks?.items?.[0].artists[0].name }}</mat-card-title
+          >
+          <img
+            style="border-radius: 5px"
+            height="50vh"
+            width="50vh"
+            [src]="tracks?.items?.[0].album.images[0].url"
+          /> </mat-card-title-group
+      ></mat-card>
     </div>
     <div class="col-md-auto">
-      <mat-card class="top-track-card"
-        ><mat-card-subtitle>Top artist</mat-card-subtitle
-        ><mat-card-title class="display-6">{{
-          topArtist
-        }}</mat-card-title></mat-card
-      >
+      <mat-card class="top-track-card">
+        <mat-card-title-group
+          ><mat-card-subtitle>Top artist</mat-card-subtitle
+          ><mat-card-title class="display-6">{{ topArtist }}</mat-card-title>
+          <img
+            style="border-radius: 5px"
+            height="50vh"
+            width="50vh"
+            [src]="topArtistImage" /></mat-card-title-group
+      ></mat-card>
     </div>
   </div>
   <div class="row">
