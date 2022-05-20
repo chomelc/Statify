@@ -14,6 +14,7 @@ export class SixMonthsStatsComponent implements OnInit {
   tracksIds: string = '';
   features: any;
   avgDanceability = 0;
+  avgEnergy = 0;
 
   constructor(private topTracksService: TopTracksService) {}
 
@@ -38,6 +39,7 @@ export class SixMonthsStatsComponent implements OnInit {
       .subscribe((data: any) => {
         this.features = data.audio_features;
         this.avgDanceability = this.getAverageDanceability();
+        this.avgEnergy = this.getAverageEnergy();
       });
   }
 
@@ -76,6 +78,19 @@ export class SixMonthsStatsComponent implements OnInit {
   }
 
   danceabilityFormatting = (data: any) => {
+    return `${parseFloat(data).toFixed(2).toString()}%`;
+  };
+  getAverageEnergy(): number {
+    let sum = 0;
+    if (this.features) {
+      for (let item of this.features) {
+        sum += item.energy;
+      }
+    }
+    return sum / 50;
+  }
+
+  energyFormatting = (data: any) => {
     return `${parseFloat(data).toFixed(2).toString()}%`;
   };
 }

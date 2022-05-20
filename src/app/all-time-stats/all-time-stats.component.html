@@ -39,5 +39,19 @@
       >
       </ngx-charts-gauge>
     </div>
+    <div class="col">
+      <ngx-charts-gauge
+        class="gauge"
+        [bigSegments]="0"
+        [angleSpan]="360"
+        [startAngle]="0"
+        [view]="[350, 350]"
+        [valueFormatting]="energyFormatting"
+        units="Energy"
+        [customColors]="[{ name: 'Energy', value: '#1DB95480' }]"
+        [results]="[{ name: 'Energy', value: avgEnergy * 100 }]"
+      >
+      </ngx-charts-gauge>
+    </div>
   </div>
 </div>
