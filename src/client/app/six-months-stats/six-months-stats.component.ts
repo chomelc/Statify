@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LegendPosition } from '@swimlane/ngx-charts';
 import { FormattedSavedTracks } from '../models/user-saved-tracks';
 import { TopArtistsService } from '../services/top-artists.service';
 import { TopTracksService } from '../services/top-tracks.service';
@@ -10,8 +11,9 @@ import { WebStorageService } from '../services/web-storage.service';
   styleUrls: ['./six-months-stats.component.css'],
 })
 export class SixMonthsStatsComponent implements OnInit {
+  public legendPosition: LegendPosition = LegendPosition.Below;
   topArtist = '';
-  topArtistImage: any;
+  topArtistImage = '';
   tracks?: FormattedSavedTracks;
   avgPopularity = 0;
   tracksIds: string = '';
@@ -79,8 +81,8 @@ export class SixMonthsStatsComponent implements OnInit {
     return sum / 50;
   }
 
-  popularityFormatting = (data: any) => {
-    return `${data.toString()}%`;
+  valueFormatting = (data: any) => {
+    return `${parseFloat(data).toFixed(2).toString()}%`;
   };
 
   // returns a comma-separated list of the Spotify IDs for the tracks.
@@ -103,9 +105,6 @@ export class SixMonthsStatsComponent implements OnInit {
     return sum / 50;
   }
 
-  danceabilityFormatting = (data: any) => {
-    return `${parseFloat(data).toFixed(2).toString()}%`;
-  };
   getAverageEnergy(): number {
     let sum = 0;
     if (this.features) {
@@ -115,10 +114,6 @@ export class SixMonthsStatsComponent implements OnInit {
     }
     return sum / 50;
   }
-
-  energyFormatting = (data: any) => {
-    return `${parseFloat(data).toFixed(2).toString()}%`;
-  };
 
   getAverageLoudness(): number {
     let sum = 0;
@@ -149,8 +144,4 @@ export class SixMonthsStatsComponent implements OnInit {
     }
     return sum / 50;
   }
-
-  valenceFormatting = (data: any) => {
-    return `${parseFloat(data).toFixed(2).toString()}%`;
-  };
 }

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col-md-auto">
+    <div class="col">
       <mat-card class="top-track-card">
         <mat-card-title-group
           ><mat-card-subtitle>Top track</mat-card-subtitle
@@ -16,7 +16,7 @@
           /> </mat-card-title-group
       ></mat-card>
     </div>
-    <div class="col-md-auto">
+    <div class="col">
       <mat-card class="top-track-card">
         <mat-card-title-group
           ><mat-card-subtitle>Top artist</mat-card-subtitle
@@ -29,74 +29,38 @@
       ></mat-card>
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-md-center align-items-md-center">
     <div class="col">
-      <ngx-charts-gauge
-        class="gauge"
-        [bigSegments]="0"
-        [angleSpan]="360"
-        [startAngle]="0"
-        [view]="[350, 350]"
-        [valueFormatting]="popularityFormatting"
-        units="Popularity"
-        [customColors]="[{ name: 'Popularity', value: '#1DB95480' }]"
-        [results]="[{ name: 'Popularity', value: avgPopularity }]"
-      >
-      </ngx-charts-gauge>
+      <ngx-charts-bar-vertical
+        class="bar-chart"
+        [xAxis]="true"
+        [yAxis]="true"
+        [yScaleMax]="100"
+        [view]="[600, 600]"
+        [showGridLines]="false"
+        [showDataLabel]="true"
+        [gradient]="true"
+        [customColors]="[
+          { name: 'Popularity', value: '#5BAE8A' },
+          { name: 'Danceability', value: '#ADFFD6' },
+          { name: 'Energy', value: '#088750' },
+          { name: 'Positiveness', value: '#1b4332' }
+        ]"
+        [results]="[
+          { name: 'Popularity', value: avgPopularity },
+          { name: 'Danceability', value: avgDanceability * 100 },
+          { name: 'Energy', value: avgEnergy * 100 },
+          { name: 'Positiveness', value: avgValence * 100 }
+        ]"
+      ></ngx-charts-bar-vertical>
     </div>
-    <div class="col">
-      <ngx-charts-gauge
-        class="gauge"
-        [bigSegments]="0"
-        [angleSpan]="360"
-        [startAngle]="0"
-        [view]="[350, 350]"
-        [valueFormatting]="danceabilityFormatting"
-        units="Danceability"
-        [customColors]="[{ name: 'Danceability', value: '#1DB95480' }]"
-        [results]="[{ name: 'Danceability', value: avgDanceability * 100 }]"
-      >
-      </ngx-charts-gauge>
-    </div>
-    <div class="col">
-      <ngx-charts-gauge
-        class="gauge"
-        [bigSegments]="0"
-        [angleSpan]="360"
-        [startAngle]="0"
-        [view]="[350, 350]"
-        [valueFormatting]="energyFormatting"
-        units="Energy"
-        [customColors]="[{ name: 'Energy', value: '#1DB95480' }]"
-        [results]="[{ name: 'Energy', value: avgEnergy * 100 }]"
-      >
-      </ngx-charts-gauge>
-    </div>
-  </div>
-  <div class="row align-items-center">
-    <div class="col" align="center">
+    <div class="col-md-auto">
       <ngx-charts-number-card
         [results]="[{ name: 'Loudness', value: avgLoudness.toFixed(2) + 'dB' }]"
         [view]="[150, 150]"
         bandColor="#1DB95480"
       >
       </ngx-charts-number-card>
-    </div>
-    <div class="col">
-      <ngx-charts-gauge
-        class="gauge"
-        [bigSegments]="0"
-        [angleSpan]="360"
-        [startAngle]="0"
-        [view]="[350, 350]"
-        [valueFormatting]="valenceFormatting"
-        units="Positiveness"
-        [customColors]="[{ name: 'Positiveness', value: '#1DB95480' }]"
-        [results]="[{ name: 'Positiveness', value: avgValence * 100 }]"
-      >
-      </ngx-charts-gauge>
-    </div>
-    <div class="col" align="center">
       <ngx-charts-number-card
         [results]="[{ name: 'Tempo', value: avgTempo.toFixed(0) + 'BPM' }]"
         [view]="[150, 150]"

@@ -13,18 +13,18 @@
     display: none;
 }
 
-::ng-deep .gauge text {
+::ng-deep .bar-chart text {
     fill: #eee;
-    transform: scale(1, 1)
 }
 
 ::ng-deep .value-text {
-    font-size: 18pt !important;
+    font-size: 1rem !important;
 }
 
 ::ng-deep .top-track-card {
-    width: 500px;
+    width: 100%;
     margin-top: 15px;
+    margin-bottom: 15px;
     background-color: #eeeeee20;
     color: #eee;
 }
