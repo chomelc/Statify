@@ -8,6 +8,47 @@
     font-size: 2rem;
 }
 
+.navbar-toggler {
+    background-color: #eeeeee50;
+    color: #1DB95490;
+}
+
+.offcanvas {
+    background-color: #252222;
+    width: 300px;
+    text-align: center;
+}
+
+.offcanvas-title {
+    font-size: 2rem;
+    color: #1DB954;
+}
+
+.offcanvas button {
+    background-color: #eeeeee50;
+    color: #1DB95490;
+}
+
+@media all and (max-width: 1000px) {
+    .navbar-brand {
+        font-size: 2rem;
+    }
+
+    .navbar-brand small {
+        font-size: 1rem;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .navbar-brand {
+        font-size: 2rem;
+    }
+
+    .navbar-brand small {
+        font-size: 1rem;
+    }
+}
+
 .container {
     margin-top: 75px
 }
@@ -15,6 +56,7 @@
 .logout a {
     background-color: #eee;
     color: #252222;
+    width: 200px;
     padding: 5px;
 }
 
@@ -75,4 +117,8 @@ a.mat-stroked-button .mat-icon {
 
 #github a:hover {
     color: #1DB954;
+}
+
+#disclaimer {
+    text-align: center;
 }

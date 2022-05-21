@@ -1,25 +1,52 @@
 <div class="d-flex flex-column min-vh-100">
   <nav class="navbar">
     <div class="container-fluid">
-      <div>
-        <span class="navbar-brand mb-0 h1 display-1">
-          <!-- <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
-                class="d-inline-block align-text-top"> -->
-          {{ title }}
-          <small>Visualize your Spotify statistics.</small>
-        </span>
-      </div>
-      <div class="logout">
-        <a
-          *ngIf="isLoggedIn"
-          mat-raised-button
-          aria-label="spotify-icon"
-          (click)="logout()"
-          routerLink="/"
-        >
-          <mat-icon svgIcon="spotify-icon"></mat-icon>
-          <span class="button-title display">Logout</span>
-        </a>
+      <span class="navbar-brand mb-0 h1 display-1">
+        {{ title }}
+        <small>Visualize your Spotify statistics.</small>
+      </span>
+      <button
+        *ngIf="isLoggedIn"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <div class="offcanvas-header">
+          <p class="offcanvas-title display-1" id="offcanvasNavbarLabel">
+            Actions
+          </p>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="logout">
+            <a
+              mat-raised-button
+              data-bs-dismiss="offcanvas"
+              aria-label="spotify-icon"
+              (click)="logout()"
+              routerLink="/"
+            >
+              <mat-icon svgIcon="spotify-icon"></mat-icon>
+              <span class="button-title display">Logout</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -37,7 +64,9 @@
 
   <nav class="navbar mt-auto footer-div">
     <div class="container-fluid footer">
-      <i>We are not related to Spotify AB or any of its partners in any way.</i>
+      <i id="disclaimer"
+        >We are not related to Spotify AB or any of its partners in any way.</i
+      >
       <p id="github">
         <a href="https://github.com/chomelc/Spotistics" target="_blank"
           >Designed & Built by Clémence Chomel</a
