@@ -13,4 +13,8 @@ export class WebStorageService {
   public set(key: string, value: string): void {
     window.localStorage.setItem(key, value);
   }
+
+  public clear(): void {
+    window.localStorage.clear();
+  }
 }

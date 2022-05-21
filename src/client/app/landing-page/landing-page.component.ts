@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { WebStorageService } from '../services/web-storage.service';
@@ -17,6 +18,7 @@ export class LandingPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private matIconRegistry: MatIconRegistry,
+    private _snackBar: MatSnackBar,
     private domSanitizer: DomSanitizer,
     private webStorageService: WebStorageService
   ) {
@@ -30,20 +32,38 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     // retrieve authorization parameters
-    this.route.queryParams.subscribe((params) => {
-      this.webStorageService.set('ACCESS_TOKEN', params['access_token']);
-      this.webStorageService.set('REFRESH_TOKEN', params['refresh_token']);
-    });
+    if (
+      this.route.snapshot.queryParams['access_token'] &&
+      this.route.snapshot.queryParams['refresh_token']
+    ) {
+      this.route.queryParams.subscribe((params) => {
+        this.webStorageService.set('ACCESS_TOKEN', params['access_token']);
+        this.webStorageService.set('REFRESH_TOKEN', params['refresh_token']);
+      });
+    } else {
+      this.logout();
+    }
 
     if (
       this.webStorageService.get('ACCESS_TOKEN') &&
       this.webStorageService.get('REFRESH_TOKEN')
     ) {
       this.isLoggedIn = true;
+      this.openSnackBar('Logged in successfully.', 'OK');
     }
   }
 
   public logout() {
     this.isLoggedIn = false;
+    this.webStorageService.clear();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: ['login-snackbar'],
+      horizontalPosition: 'end',
+      verticalPosition: 'bottom',
+    });
   }
 }

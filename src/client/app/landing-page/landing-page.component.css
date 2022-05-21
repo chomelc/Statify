@@ -24,6 +24,16 @@
     text-align: center;
 }
 
+::ng-deep .login-snackbar {
+    background-color: #eee;
+    color: #252222;
+    width: 500px;
+}
+
+::ng-deep .login-snackbar .mat-simple-snackbar-action {
+    color: #1DB954;
+}
+
 #loggedin {
     display: flex;
     justify-content: space-around;

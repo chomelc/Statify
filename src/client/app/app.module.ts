@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { LoginComponent } from './login/login.component';
@@ -60,6 +61,7 @@ import { WebStorageService } from './services/web-storage.service';
     MatTabsModule,
     NgxChartsModule,
     MatCardModule,
+    MatSnackBarModule,
   ],
   providers: [
     WebStorageService,
