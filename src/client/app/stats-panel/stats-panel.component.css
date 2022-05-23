@@ -1,6 +1,35 @@
 .tabs {
     color: #eee;
-    font-size: 1.5rem;
+}
+
+@media all and (max-width: 1000px) {
+    .tabs {
+        font-size: 1.5rem;
+    }
+
+    ::ng-deep .top-track-card .mat-card-title {
+        font-size: 0.8rem;
+    }
+}
+
+@media all {
+    .tabs {
+        font-size: 1rem;
+    }
+
+    ::ng-deep .top-track-card .mat-card-title {
+        font-size: 1rem;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .tabs {
+        font-size: 0.8rem;
+    }
+
+    ::ng-deep .top-track-card .mat-card-title {
+        font-size: 0.8rem;
+    }
 }
 
 ::ng-deep .mat-tab-label-active {
@@ -9,7 +38,6 @@
 }
 
 ::ng-deep .mat-ink-bar {
-    /* background-color: #1DB954 !important; */
     display: none;
 }
 
@@ -22,17 +50,14 @@
 }
 
 ::ng-deep .top-track-card {
-    width: 100%;
+    max-width: 90vw;
     margin-top: 15px;
     margin-bottom: 15px;
     background-color: #eeeeee20;
     color: #eee;
+    text-align: left;
 }
 
 ::ng-deep .top-track-card .mat-card-subtitle {
     color: #1DB954;
-}
-
-::ng-deep .top-track-card .mat-card-title {
-    font-size: 1rem;
 }

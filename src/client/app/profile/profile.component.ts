@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormattedProfile } from '../models/profile-model';
 import { SpotifyProfileService } from '../services/spotify-profile.service';
 import { WebStorageService } from '../services/web-storage.service';
@@ -10,7 +10,7 @@ import { WebStorageService } from '../services/web-storage.service';
 })
 export class ProfileComponent implements OnInit {
   profile?: FormattedProfile;
-  followers? = [{}];
+  followers: { name: string; value: any }[] = [];
 
   constructor(
     private spotifyProfileService: SpotifyProfileService,

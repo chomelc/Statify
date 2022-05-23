@@ -69,7 +69,7 @@
 ::ng-deep .login-snackbar {
     background-color: #eee;
     color: #252222;
-    width: 500px;
+    width: 100%;
 }
 
 ::ng-deep .login-snackbar .mat-simple-snackbar-action {
@@ -79,6 +79,7 @@
 #loggedin {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 35px;
 }
 
 .button-title {

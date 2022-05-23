@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col">
+  <div class="row justify-content-md-center" align="center">
+    <div class="col-sm">
       <mat-card class="top-track-card">
         <mat-card-title-group
           ><mat-card-subtitle>Top track</mat-card-subtitle
@@ -16,7 +16,7 @@
           /> </mat-card-title-group
       ></mat-card>
     </div>
-    <div class="col">
+    <div class="col-sm">
       <mat-card class="top-track-card">
         <mat-card-title-group
           ><mat-card-subtitle>Top artist</mat-card-subtitle
@@ -30,13 +30,14 @@
     </div>
   </div>
   <div class="row justify-content-md-center align-items-md-center">
-    <div class="col">
+    <div class="col" align="center">
       <ngx-charts-bar-vertical
         class="bar-chart"
         [xAxis]="true"
         [yAxis]="true"
         [yScaleMax]="100"
-        [view]="[600, 600]"
+        [view]="[500, 500]"
+        [barPadding]="30"
         [showGridLines]="false"
         [showDataLabel]="true"
         [gradient]="true"
@@ -54,15 +55,17 @@
         ]"
       ></ngx-charts-bar-vertical>
     </div>
-    <div class="col-md-auto">
+    <div class="col" align="center">
       <ngx-charts-number-card
-        [results]="[{ name: 'Loudness', value: avgLoudness.toFixed(2) + 'dB' }]"
+        [results]="[
+          { name: 'Loudness', value: avgLoudness.toFixed(2) + ' dB' }
+        ]"
         [view]="[150, 150]"
         bandColor="#1DB95480"
       >
       </ngx-charts-number-card>
       <ngx-charts-number-card
-        [results]="[{ name: 'Tempo', value: avgTempo.toFixed(0) + 'BPM' }]"
+        [results]="[{ name: 'Tempo', value: avgTempo.toFixed(0) + ' BPM' }]"
         [view]="[150, 150]"
         bandColor="#1DB95480"
       >
