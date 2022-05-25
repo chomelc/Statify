@@ -1,8 +1,13 @@
-# :loud_sound: ~~Spotistics~~ / Statify
+<h1>
+  <img src="src/client/assets/img/statify.png" width="30" title="hover text">
+  <strike>Spotistics</strike> / Statify
+</h1>
 
 :bulb: The production name of this application is _Statify_, in order to comply with the [Spotify Developer Policy](https://developer.spotify.com/policy/).
 
 :gear: _This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5._
+
+:art: _Icon designed by [srip](https://www.flaticon.com/authors/srip)._
 
 ## :hammer: Tools
 
