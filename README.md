@@ -7,7 +7,7 @@
 
 :gear: _This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5._
 
-:art: _Icon designed by [srip](https://www.flaticon.com/authors/srip)._
+:art: _Bar Chart Icon designed by [srip](https://www.flaticon.com/authors/srip)._
 
 ## :hammer: Tools
 
