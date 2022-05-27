@@ -27,6 +27,10 @@ Run `npm run start:frontend` for a dev server and navigate to http://localhost:4
 
 Make sure the [server](https://github.com/chomelc/Statify-server) is running on http://localhost:8000/.
 
+## :round_pushpin: Visiting the actual application
+
+The actual application is deployed with Heroku [here](https://appstatify.herokuapp.com/).
+
 ---
 
 <a href="https://www.buymeacoffee.com/chomelcl" target="_blank"><img src="./src/assets/img/bmc-button.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
