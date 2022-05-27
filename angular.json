@@ -11,22 +11,22 @@
         }
       },
       "root": "",
-      "sourceRoot": "src/client",
+      "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/spotistics",
-            "index": "src/client/index.html",
-            "main": "src/client/main.ts",
-            "polyfills": "src/client/polyfills.ts",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/client/favicon.ico", "src/client/assets"],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/client/styles.css"
+              "src/styles.css"
             ],
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.bundle.js"]
           },
@@ -46,8 +46,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "src/client/environments/environment.ts",
-                  "with": "src/client/environments/environment.prod.ts"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -89,14 +89,14 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/client/test.ts",
-            "polyfills": "src/client/polyfills.ts",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/client/favicon.ico", "src/client/assets"],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/client/styles.css"
+              "src/styles.css"
             ],
             "scripts": []
           }

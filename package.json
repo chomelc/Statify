@@ -1,12 +1,11 @@
 {
-  "name": "spotistics",
-  "version": "0.0.0",
+  "name": "statify",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start:backend": "nodemon src/server/index.js",
     "start:frontend": "ng serve",
     "heroku-postbuild": "ng build --prod",
-    "start": "node server.js && node src/server/index.js",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

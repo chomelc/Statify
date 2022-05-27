@@ -1,5 +1,5 @@
 <h1>
-  <img src="src/client/assets/img/statify.png" width="30" title="hover text">
+  <img src="src/assets/img/statify.png" width="30" title="hover text">
   <strike>Spotistics</strike> / Statify
 </h1>
 
@@ -15,7 +15,7 @@
 - [ngx-charts](https://swimlane.gitbook.io/ngx-charts/) for the charts ;
 - [Angular Material](https://material.angular.io/) & [Bootstrap](https://getbootstrap.com/) for styling.
 
-## Running the app in development
+## :gear: Running the app in development
 
 Install or update dependencies with:
 
@@ -23,14 +23,10 @@ Install or update dependencies with:
 npm install
 ```
 
-### :gear: Running the backend
-
-Run `npm run start:backend` and navigate to http://localhost:8000/.
-
-### :dart: Running the frontend
-
 Run `npm run start:frontend` for a dev server and navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
+
+Make sure the [server](https://github.com/chomelc/Statify-server) is running on http://localhost:8000/.
 
 ---
 
-<a href="https://www.buymeacoffee.com/chomelcl" target="_blank"><img src="./src/client/assets/img/bmc-button.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
+<a href="https://www.buymeacoffee.com/chomelcl" target="_blank"><img src="./src/assets/img/bmc-button.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
