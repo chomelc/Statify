@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  url: 'https://appstatify.herokuapp.com/',
+  apiUrl: 'https://appstatify-api.herokuapp.com/',
 };
