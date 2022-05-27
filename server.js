@@ -4,7 +4,7 @@ const path = require("path");
 var proxy = require("express-http-proxy");
 
 const app = express();
-app.use("/login", proxy("https://appstatify-api.herokuapp.com/"));
+app.use("/login", proxy("https://appstatify-api.herokuapp.com/login"));
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + "/dist/spotistics"));
