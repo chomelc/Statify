@@ -1,4 +1,3 @@
-const PORT = 8000;
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
@@ -6,6 +5,7 @@ var cookieParser = require("cookie-parser");
 const { URLSearchParams } = require("url");
 require("dotenv").config();
 
+const PORT = process.env.PORT || 8000;
 var client_id = process.env.SPOTIFY_CLIENT_ID;
 var client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 var redirect_uri = "http://localhost:8000/callback";

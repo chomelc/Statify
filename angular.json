@@ -71,7 +71,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "spotistics:build:production"
+              "browserTarget": "spotistics:build:production",
+              "proxyConfig": "./proxy-prod.conf.json"
             },
             "development": {
               "browserTarget": "spotistics:build:development"

@@ -1,0 +1,10 @@
+{
+  "/login": {
+    "target": "https://statify.herokuapp.com/",
+    "secure": false
+  },
+  "/callback": {
+    "target": "https://statify.herokuapp.com/",
+    "secure": false
+  }
+}
