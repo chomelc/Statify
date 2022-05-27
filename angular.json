@@ -65,14 +65,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "spotistics:build",
-            "proxyConfig": "./proxy.conf.json"
-          },
           "configurations": {
             "production": {
-              "browserTarget": "spotistics:build:production",
-              "proxyConfig": "./proxy-prod.conf.json"
+              "browserTarget": "spotistics:build:production"
             },
             "development": {
               "browserTarget": "spotistics:build:development"
